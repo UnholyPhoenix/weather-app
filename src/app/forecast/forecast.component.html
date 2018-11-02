@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <div class="alert alert-warning mt-5" *ngIf="noDataFetched">
+        No data found for your location. This can be the fault of the specified wrong <strong>APPID</strong>.
+    </div>
+    <div class="container mt-5" *ngIf="!noDataFetched">
+      <h1>
+        <span translate>Forecast</span>
+      </h1>
+      <app-loader [isLoading]="isLoading"></app-loader>
+      <div class="row" [hidden]="isLoading">
+
+        <div class="col" *ngFor="let foreCast of foreCasts">
+          <h3 class="mt-4">{{ foreCast.day }}</h3>
+          <img [src]="foreCast.iconSrc" alt="weather-icon">
+          <p>Temperature: {{ foreCast.temp }}</p>
+          <p>Wind direction: {{ foreCast.windDeg }} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron text-center">
+      <h1 *ngIf="!noDataFetched">
+        <span translate>Temperatures for the next 3 hours</span>
+      </h1>
+      <div class="alert alert-warning mt-5" *ngIf="noDataFetched">
+          No data found for your location. This can be the fault of the specified wrong <strong>APPID</strong>.
+      </div>
+    <canvas id="canvas" style="max-width:1100px;margin:auto;">{{ chart }}</canvas>
+  </div>
+</div>

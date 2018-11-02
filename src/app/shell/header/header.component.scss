@@ -2,6 +2,15 @@
 
 .navbar {
   margin-bottom: $spacer;
+
+  &-brand {
+    color: orange;
+    padding-top: 0px;
+  }
+
+  &-nav {
+    padding-left: 2.5rem;
+  }
 }
 
 .nav-link.dropdown-toggle {

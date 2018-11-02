@@ -4,12 +4,14 @@ import { Observable, of } from 'rxjs';
 export interface Credentials {
   // Customize received credentials here
   username: string;
-  token: string;
+  apiId: string;
+  location?: string;
+  unit: string;
 }
 
 export interface LoginContext {
   username: string;
-  password: string;
+  apiId: string;
   remember?: boolean;
 }
 
@@ -39,7 +41,8 @@ export class AuthenticationService {
     // Replace by proper authentication call
     const data = {
       username: context.username,
-      token: '123456'
+      apiId: context.apiId,
+      unit: 'metric'
     };
     this.setCredentials(data, context.remember);
     return of(data);
@@ -78,7 +81,7 @@ export class AuthenticationService {
    * @param {Credentials=} credentials The user credentials.
    * @param {boolean=} remember True to remember credentials across sessions.
    */
-  private setCredentials(credentials?: Credentials, remember?: boolean) {
+  setCredentials(credentials?: Credentials, remember?: boolean) {
     this._credentials = credentials || null;
 
     if (credentials) {

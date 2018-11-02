@@ -7,24 +7,24 @@
     </button>
     <div id="navbar-menu" class="collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
       <div class="navbar-nav">
-        <a class="nav-item nav-link text-uppercase" routerLink="/home" routerLinkActive="active">
-          <i class="fas fa-home"></i>
-          <span translate>Home</span>
+        <a class="nav-item nav-link text-uppercase" routerLink="/dashboard" routerLinkActive="active">
+          <i class="fas fa-table"></i>
+          <span translate>Dashboard</span>
         </a>
-        <a class="nav-item nav-link text-uppercase" routerLink="/about" routerLinkActive="active">
-          <i class="fas fa-question-circle"></i>
-          <span translate>About</span>
+        <a class="nav-item nav-link text-uppercase" routerLink="/forecast" routerLinkActive="active">
+          <i class="fas fa-chart-pie"></i>
+          <span translate>Forecast</span>
         </a>
       </div>
       <div class="navbar-nav ml-auto">
-        <div class="nav-item" ngbDropdown placement="bottom-right">
+        <!-- <div class="nav-item" ngbDropdown placement="bottom-right">
           <a id="language-dropdown" class="nav-link" ngbDropdownToggle>{{currentLanguage}}</a>
           <div ngbDropdownMenu aria-labelledby="language-dropdown">
             <button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">
               {{language}}
             </button>
           </div>
-        </div>
+        </div> -->
         <div class="nav-item" ngbDropdown placement="bottom-right">
           <a id="user-dropdown" class="nav-link" ngbDropdownToggle>
             <i class="fas fa-user-circle"></i>
@@ -32,6 +32,8 @@
           <div ngbDropdownMenu aria-labelledby="user-dropdown">
             <h6 class="dropdown-header">
               <span translate>Logged in as</span> <b>{{username}}</b></h6>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" (click)="userProfile()" translate>User profile</button>
             <div class="dropdown-divider"></div>
             <button class="dropdown-item" (click)="logout()" translate>Logout</button>
           </div>

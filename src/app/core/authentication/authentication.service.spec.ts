@@ -28,14 +28,14 @@ describe('AuthenticationService', () => {
       // Act
       const request = authenticationService.login({
         username: 'toto',
-        password: '123'
+        apiId: '123'
       });
       tick();
 
       // Assert
       request.subscribe(credentials => {
         expect(credentials).toBeDefined();
-        expect(credentials.token).toBeDefined();
+        expect(credentials.apiId).toBeDefined();
       });
     }));
 
@@ -45,7 +45,7 @@ describe('AuthenticationService', () => {
       // Act
       const request = authenticationService.login({
         username: 'toto',
-        password: '123'
+        apiId: '123'
       });
       tick();
 
@@ -54,8 +54,8 @@ describe('AuthenticationService', () => {
         expect(authenticationService.isAuthenticated()).toBe(true);
         expect(authenticationService.credentials).toBeDefined();
         expect(authenticationService.credentials).not.toBeNull();
-        expect((<Credentials>authenticationService.credentials).token).toBeDefined();
-        expect((<Credentials>authenticationService.credentials).token).not.toBeNull();
+        expect((<Credentials>authenticationService.credentials).apiId).toBeDefined();
+        expect((<Credentials>authenticationService.credentials).apiId).not.toBeNull();
       });
     }));
 
@@ -63,7 +63,7 @@ describe('AuthenticationService', () => {
       // Act
       const request = authenticationService.login({
         username: 'toto',
-        password: '123'
+        apiId: '123'
       });
       tick();
 
@@ -77,7 +77,7 @@ describe('AuthenticationService', () => {
       // Act
       const request = authenticationService.login({
         username: 'toto',
-        password: '123',
+        apiId: '123',
         remember: true
       });
       tick();
@@ -94,7 +94,7 @@ describe('AuthenticationService', () => {
       // Arrange
       const loginRequest = authenticationService.login({
         username: 'toto',
-        password: '123'
+        apiId: '123'
       });
       tick();
 
@@ -118,7 +118,7 @@ describe('AuthenticationService', () => {
       // Arrange
       const loginRequest = authenticationService.login({
         username: 'toto',
-        password: '123',
+        apiId: '123',
         remember: true
       });
       tick();
